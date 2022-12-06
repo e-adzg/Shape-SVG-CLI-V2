@@ -1,0 +1,11 @@
+@startuml
+class Polygon {
+    + GonPoints : string?
+    + polygonFill : string?
+    + polygonStroke : string?
+    + polygonStrokeWidth : string?
+    + Polygon(GonPoints:string?, polygonFill:string?, polygonStroke:string?, polygonStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Polygon
+@enduml

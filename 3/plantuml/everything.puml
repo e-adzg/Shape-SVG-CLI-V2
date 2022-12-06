@@ -1,0 +1,148 @@
+@startuml
+
+!include .\\Caretaker.puml
+!include .\\Circle.puml
+!include .\\CM.puml
+!include .\\Ellipse.puml
+!include .\\IMemento.puml
+!include .\\Line.puml
+!include .\\Originator.puml
+!include .\\Path.puml
+!include .\\Polygon.puml
+!include .\\Polyline.puml
+!include .\\Program.puml
+!include .\\Rectangle.puml
+!include .\\Shape.puml
+!include .\\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Debug\net6.0\Assignment2.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\Assignment2.GlobalUsings.g.puml
+!include .\\obj\Debug\net6.0\Assignment3.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\Assignment3.GlobalUsings.g.puml
+
+class Caretaker {
+    + Caretaker(originator:Originator)
+    + resetRedo() : void
+    + Backup() : void
+    + BackupIncludingNew() : void
+    + Undo() : string
+    + Redo() : string
+    + checkIfEqual(input:string) : bool
+    + checkMementoState() : string
+    + checkRedoState() : string
+    + printUndoList() : void
+    + printRedoList() : void
+}
+
+class Circle {
+    + cr : string?
+    + cx : string?
+    + cy : string?
+    + circleStroke : string?
+    + circleStrokeWidth : string?
+    + circleFill : string?
+    + Circle(cr:string?, cx:string?, cy:string?, circleStroke:string?, circleStrokeWidth:string?, circleFill:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Circle
+
+class CM {
+    + CM(state:string)
+    + GetState() : string
+}
+IMemento <|-- CM
+
+class Ellipse {
+    + ex : string?
+    + ey : string?
+    + er1 : string?
+    + er2 : string?
+    + ellipseFill : string?
+    + ellipseStroke : string?
+    + ellipseStrokeWidth : string?
+    + Ellipse(ex:string?, ey:string?, er1:string?, er2:string?, ellipseFill:string?, ellipseStroke:string?, ellipseStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Ellipse
+
+
+interface IMemento {
+    GetState() : string
+}
+
+class Line {
+    + x1 : string?
+    + y1 : string?
+    + x2 : string?
+    + y2 : string?
+    + lineStroke : string?
+    + lineStrokeWidth : string?
+    + Line(x1:string?, y1:string?, x2:string?, y2:string?, lineStroke:string?, lineStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Line
+
+
+class Originator {
+    + Originator(state:string)
+    + DoSomething(input:string) : void
+    + Save() : IMemento
+    + Restore(memento:IMemento) : void
+}
+
+class Path {
+    + path : string?
+    + pathStroke : string?
+    + pathStrokeWidth : string?
+    + pathStrokeFill : string?
+    + Path(path:string?, pathStroke:string?, pathStrokeWidth:string?, pathStrokeFill:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Path
+
+class Polygon {
+    + GonPoints : string?
+    + polygonFill : string?
+    + polygonStroke : string?
+    + polygonStrokeWidth : string?
+    + Polygon(GonPoints:string?, polygonFill:string?, polygonStroke:string?, polygonStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Polygon
+
+class Polyline {
+    + points : string?
+    + polylineFill : string?
+    + polylineStroke : string?
+    + polylineStrokeWidth : string?
+    + Polyline(points:string?, polylineFill:string?, polylineStroke:string?, polylineStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Polyline
+
+class Program {
+    {static} Main(args:string[]) : void
+}
+
+class Rectangle {
+    + rx : string?
+    + ry : string?
+    + rH : string?
+    + rW : string?
+    + recFill : string?
+    + recStroke : string?
+    + recStrokeWidth : string?
+    + recFillOpacity : string?
+    + recStrokeOpacity : string?
+    + Rectangle(rx:string?, ry:string?, rH:string?, rW:string?, recFill:string?, recStroke:string?, recStrokeWidth:string?, recFillOpacity:string?, recStrokeOpacity:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Rectangle
+
+interface Shape {
+}
+class "List`1"<T> {
+}
+Shape o-> "shapes<Shape>" "List`1"
+
+
+@enduml

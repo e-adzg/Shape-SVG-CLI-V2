@@ -1,0 +1,20 @@
+@startuml
+!include .\\Caretaker.puml
+!include .\\Circle.puml
+!include .\\CM.puml
+!include .\\Ellipse.puml
+!include .\\IMemento.puml
+!include .\\Line.puml
+!include .\\Originator.puml
+!include .\\Path.puml
+!include .\\Polygon.puml
+!include .\\Polyline.puml
+!include .\\Program.puml
+!include .\\Rectangle.puml
+!include .\\Shape.puml
+!include .\\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Debug\net6.0\Assignment2.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\Assignment2.GlobalUsings.g.puml
+!include .\\obj\Debug\net6.0\Assignment3.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\Assignment3.GlobalUsings.g.puml
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+class Rectangle {
+    + rx : string?
+    + ry : string?
+    + rH : string?
+    + rW : string?
+    + recFill : string?
+    + recStroke : string?
+    + recStrokeWidth : string?
+    + recFillOpacity : string?
+    + recStrokeOpacity : string?
+    + Rectangle(rx:string?, ry:string?, rH:string?, rW:string?, recFill:string?, recStroke:string?, recStrokeWidth:string?, recFillOpacity:string?, recStrokeOpacity:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Rectangle
+@enduml

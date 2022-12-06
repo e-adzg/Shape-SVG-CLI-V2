@@ -1,0 +1,13 @@
+@startuml
+class Circle {
+    + cr : string?
+    + cx : string?
+    + cy : string?
+    + circleStroke : string?
+    + circleStrokeWidth : string?
+    + circleFill : string?
+    + Circle(cr:string?, cx:string?, cy:string?, circleStroke:string?, circleStrokeWidth:string?, circleFill:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Circle
+@enduml

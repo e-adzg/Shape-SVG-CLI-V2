@@ -1,0 +1,8 @@
+@startuml
+class Originator {
+    + Originator(state:string)
+    + DoSomething(input:string) : void
+    + Save() : IMemento
+    + Restore(memento:IMemento) : void
+}
+@enduml
