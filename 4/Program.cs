@@ -1,18 +1,21 @@
 ﻿/*
-https://github.com/e-adzg/Shape-SVG-CLI
-
 This is my SVG Maker. I am using NET 6.0. 
 Tested on Windows 11 Pro in VSCode 1.73.0
 
 HOW TO USE:
-to run programme, type 'dotnet run' in  for example, if you want to make a rectangle, you would type 'A rectangle' then, input all of the co-ordinates and CSS styles you wish to add. all inputs take in string, so to add colour, you can type 'lime'. inputs accepts decimals where appropriate.
+to run programme, type 'dotnet run' in  for example, if you want to make a rectangle, you would type 'A rectangle' then, input all of the co-ordinates and CSS styles you wish to add. you have the option to use pre made styles with options 1, 2 or 3 that i made. all inputs take in string, so to add colour, you can type 'lime'. inputs accepts decimals where appropriate.
 
 TO EXPORT:
 after adding shapes, you can type 'E' to make a SVG file. Enter the name of the SVG file and then the program will terminate and a new SVG file will be made in the same folder here.
 
 CODE CONTEXT:
 Command Pattern. Shapes will be pushed into canvas stack. There are undo and redo stacks. They will be pushing and removing shapes when they are called. The user class is the invoker class. The command class is the interface for commands. The deleteshapecommand and addshapecommand classes are classes that injerit from the command class. 
+
+PATTERN:
+Abstract Factory Pattern is used to generate a shape. Check ShapeFactory.cs to see more.
+Style objects are implemented with the shape facotry also. It saves having the fact to completely seperate them.
 */
+
 
 using static System.Console;
 using System;
@@ -42,7 +45,7 @@ namespace Assignment4
 
             while (programRun == true) //keeps program on
             {
-                ForegroundColor = ConsoleColor.Red; WriteLine("Shape SVG CLI"); WriteLine("By e-adzg"); ResetColor();
+                ForegroundColor = ConsoleColor.Red; WriteLine("Shape SVG CLI"); WriteLine("By: Erikas Adzgauskas 20415984"); ResetColor();
                 ForegroundColor = ConsoleColor.Blue; WriteLine("===================================="); ResetColor();
 
                 Canvas canvas = new Canvas(); //creates canvas
@@ -53,22 +56,22 @@ namespace Assignment4
                 {
                     string? userRead = ReadLine();
 
-                    if (userRead != null)
+                    if (userRead != null) // checks if null for the split to work
                     {
-                        string[] parts = userRead.Split(' ');
-                        if (parts[0] == "A")
+                        string[] parts = userRead.Split(' '); //splits the shape and A
+                        if (parts[0] == "A") //if this is A, then the user wants to add a shape
                         {
                             ForegroundColor = ConsoleColor.Blue; WriteLine("\nWould you like to style the " + parts[1] + " manually or apply style 1, 2 or 3?"); ResetColor();
                             ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2 or 3:"); ResetColor();
                             string? userStyle = ReadLine();
 
-                            while (userStyle != "M" && userStyle != "1" && userStyle != "2" && userStyle != "3")
+                            while (userStyle != "M" && userStyle != "1" && userStyle != "2" && userStyle != "3") //keep asking for input if none of the options are inputted
                             {
                                 ForegroundColor = ConsoleColor.Red; WriteLine("\nInvalid Input!\n"); ResetColor();
                                 ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2 or 3:"); ResetColor();
                                 userStyle = ReadLine();
                             }
-                            factory.generateShape(user, canvas, parts[1], userStyle);
+                            factory.generateShape(user, canvas, parts[1], userStyle); //send the info to the factory to make the shape 
                         }
                         else
                         {
