@@ -6,55 +6,62 @@ public class ShapeFactory
     {
         if (typeOfShape == "rectangle")                                                                     //^   RECTANGLE
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the height:"); ResetColor();
-            string? userHeight = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the width:"); ResetColor();
-            string? userWitdh = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the X:"); ResetColor();
-            string? userRecX = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y:"); ResetColor();
-            string? userRecY = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Rectangle(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomColour(), RandomNumber(0, 5), RandomDouble(0, 1), RandomDouble(0, 1)), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the height:"); ResetColor();
+                string? userHeight = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the width:"); ResetColor();
+                string? userWitdh = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the X:"); ResetColor();
+                string? userRecX = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y:"); ResetColor();
+                string? userRecY = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-                string? userFill = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userRecStrokeColour = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-                string? userRecStrokeWidth = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Opacity:"); ResetColor();
-                string? userRecFillOpacity = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Opacity:"); ResetColor();
-                string? userRecStrokeOpacity = ReadLine();
-                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
-            }
-            else if (userStyle == "1")
-            {
-                string? userFill = "blue";
-                string? userRecStrokeColour = "pink";
-                string? userRecStrokeWidth = "5";
-                string? userRecFillOpacity = "0.1";
-                string? userRecStrokeOpacity = "0.9";
-                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userFill = "red";
-                string? userRecStrokeColour = "black";
-                string? userRecStrokeWidth = "5";
-                string? userRecFillOpacity = "1";
-                string? userRecStrokeOpacity = "0.5";
-                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userFill = "lime";
-                string? userRecStrokeColour = "black";
-                string? userRecStrokeWidth = "5";
-                string? userRecFillOpacity = "1";
-                string? userRecStrokeOpacity = "0.9";
-                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                    string? userFill = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userRecStrokeColour = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userRecStrokeWidth = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Opacity:"); ResetColor();
+                    string? userRecFillOpacity = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Opacity:"); ResetColor();
+                    string? userRecStrokeOpacity = ReadLine();
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userFill = "blue";
+                    string? userRecStrokeColour = "pink";
+                    string? userRecStrokeWidth = "5";
+                    string? userRecFillOpacity = "0.1";
+                    string? userRecStrokeOpacity = "0.9";
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userFill = "red";
+                    string? userRecStrokeColour = "black";
+                    string? userRecStrokeWidth = "5";
+                    string? userRecFillOpacity = "1";
+                    string? userRecStrokeOpacity = "0.5";
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userFill = "lime";
+                    string? userRecStrokeColour = "black";
+                    string? userRecStrokeWidth = "5";
+                    string? userRecFillOpacity = "1";
+                    string? userRecStrokeOpacity = "0.9";
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                }
             }
         }
         else if (typeOfShape == "circle")                                                           //^   CIRCLE
@@ -302,6 +309,24 @@ public class ShapeFactory
         Random r = new Random();
         int randomInt = r.Next(min, max);
         string randomString = randomInt.ToString();
+        return randomString;
+    }
+
+    public string RandomColour()
+    {
+        Random r = new Random();
+        var options = new List<string> { "red", "lime", "blue", "purple", "black" };
+        int index = r.Next(options.Count);
+        var fill = options[index];
+        options.RemoveAt(index);
+        return fill;
+    }
+
+    public string RandomDouble(double min, double max)
+    {
+        Random random = new Random();
+        double randomDouble = random.NextDouble() * (max - min) + min;
+        string randomString = randomDouble.ToString("0.#"); //this gets rid of extra decimals at the end and makes it go to 1 decimal point
         return randomString;
     }
 }

@@ -61,14 +61,14 @@ namespace Assignment4
                         string[] parts = userRead.Split(' '); //splits the shape and A
                         if (parts[0] == "A") //if this is A, then the user wants to add a shape
                         {
-                            ForegroundColor = ConsoleColor.Blue; WriteLine("\nWould you like to style the " + parts[1] + " manually or apply style 1, 2 or 3?"); ResetColor();
-                            ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2 or 3:"); ResetColor();
+                            ForegroundColor = ConsoleColor.Blue; WriteLine("\nWould you like to style the " + parts[1] + " manually or apply style 1, 2 or 3, or randomly generate?"); ResetColor();
+                            ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2, 3 or R:"); ResetColor();
                             string? userStyle = ReadLine();
 
-                            while (userStyle != "M" && userStyle != "1" && userStyle != "2" && userStyle != "3") //keep asking for input if none of the options are inputted
+                            while (userStyle != "M" && userStyle != "1" && userStyle != "2" && userStyle != "3" && userStyle != "R") //keep asking for input if none of the options are inputted
                             {
                                 ForegroundColor = ConsoleColor.Red; WriteLine("\nInvalid Input!\n"); ResetColor();
-                                ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2 or 3:"); ResetColor();
+                                ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2, 3 or R:"); ResetColor();
                                 userStyle = ReadLine();
                             }
                             factory.generateShape(user, canvas, parts[1], userStyle); //send the info to the factory to make the shape 
