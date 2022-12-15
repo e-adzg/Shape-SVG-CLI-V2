@@ -1,8 +1,8 @@
 using static System.Console;
-
+//I can pass in the type of style into the shape factory and go from here
 public class ShapeFactory
 {
-    public void generateShape(User user, Canvas canvas, string typeOfShape)
+    public void generateShape(User user, Canvas canvas, string typeOfShape, string userStyle)
     {
         if (typeOfShape == "rectangle")
         {
@@ -14,18 +14,48 @@ public class ShapeFactory
             string? userRecX = ReadLine();
             ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y:"); ResetColor();
             string? userRecY = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-            string? userFill = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-            string? userRecStrokeColour = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-            string? valRecStrokeWidth = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Opacity:"); ResetColor();
-            string? userRecFillOpacity = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Opacity:"); ResetColor();
-            string? userRecStrokeOpacity = ReadLine();
 
-            user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, valRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+            if (userStyle == "M")
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                string? userFill = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                string? userRecStrokeColour = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                string? userRecStrokeWidth = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Opacity:"); ResetColor();
+                string? userRecFillOpacity = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Opacity:"); ResetColor();
+                string? userRecStrokeOpacity = ReadLine();
+                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+            }
+            else if (userStyle == "1")
+            {
+                string? userFill = "blue";
+                string? userRecStrokeColour = "pink";
+                string? userRecStrokeWidth = "5";
+                string? userRecFillOpacity = "0.1";
+                string? userRecStrokeOpacity = "0.9";
+                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+            }
+            else if (userStyle == "2")
+            {
+                string? userFill = "red";
+                string? userRecStrokeColour = "black";
+                string? userRecStrokeWidth = "5";
+                string? userRecFillOpacity = "1";
+                string? userRecStrokeOpacity = "0.5";
+                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+            }
+            else if (userStyle == "3")
+            {
+                string? userFill = "lime";
+                string? userRecStrokeColour = "black";
+                string? userRecStrokeWidth = "5";
+                string? userRecFillOpacity = "1";
+                string? userRecStrokeOpacity = "0.9";
+                user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+            }
         }
         else if (typeOfShape == "circle")
         {

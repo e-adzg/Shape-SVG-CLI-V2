@@ -58,7 +58,17 @@ namespace Assignment4
                         string[] parts = userRead.Split(' ');
                         if (parts[0] == "A")
                         {
-                            factory.generateShape(user, canvas, parts[1]);
+                            ForegroundColor = ConsoleColor.Blue; WriteLine("\nWould you like to style the " + parts[1] + " manually or apply style 1, 2 or 3?"); ResetColor();
+                            ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2 or 3:"); ResetColor();
+                            string? userStyle = ReadLine();
+
+                            while (userStyle != "M" && userStyle != "1" && userStyle != "2" && userStyle != "3")
+                            {
+                                ForegroundColor = ConsoleColor.Red; WriteLine("\nInvalid Input!\n"); ResetColor();
+                                ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2 or 3:"); ResetColor();
+                                userStyle = ReadLine();
+                            }
+                            factory.generateShape(user, canvas, parts[1], userStyle);
                         }
                         else
                         {
