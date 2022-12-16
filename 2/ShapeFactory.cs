@@ -9,6 +9,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Rectangle(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomColour(), RandomNumber(0, 5), RandomDouble(0, 1), RandomDouble(0, 1))); //this will add all the variables to the list
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -35,6 +36,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Opacity:"); ResetColor();
                     string? userRecStrokeOpacity = ReadLine();
                     shapes.Add(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity)); //this will add all the variables to the list
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Rectangle Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -45,6 +47,7 @@ public class ShapeFactory
                     string? userRecFillOpacity = "0.1";
                     string? userRecStrokeOpacity = "0.9";
                     shapes.Add(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity)); //this will add all the variables to the list
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Rectangle Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "2")
@@ -55,6 +58,7 @@ public class ShapeFactory
                     string? userRecFillOpacity = "1";
                     string? userRecStrokeOpacity = "0.5";
                     shapes.Add(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity)); //this will add all the variables to the list
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Rectangle Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -65,6 +69,7 @@ public class ShapeFactory
                     string? userRecFillOpacity = "1";
                     string? userRecStrokeOpacity = "0.9";
                     shapes.Add(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity)); //this will add all the variables to the list
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Rectangle Shape!\n"); ResetColor();
                     return shapes;
                 }
             }
@@ -74,6 +79,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Circle(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomDouble(0, 1), RandomColour()));
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -94,6 +100,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
                     string? userCircleFill = ReadLine();
                     shapes.Add(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Circle Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -102,6 +109,7 @@ public class ShapeFactory
                     string? userCircleStrokeWidth = "5";
                     string? userCircleFill = "red";
                     shapes.Add(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Circle Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "2")
@@ -110,6 +118,7 @@ public class ShapeFactory
                     string? userCircleStrokeWidth = "5";
                     string? userCircleFill = "black";
                     shapes.Add(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Circle Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -118,6 +127,7 @@ public class ShapeFactory
                     string? userCircleStrokeWidth = "5";
                     string? userCircleFill = "black";
                     shapes.Add(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Circle Shape!\n"); ResetColor();
                     return shapes;
                 }
             }
@@ -127,6 +137,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Ellipse(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomColour(), RandomDouble(0, 1)));
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -149,6 +160,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
                     string? userEllipseStrokeWidth = ReadLine();
                     shapes.Add(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Ellipse Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -157,6 +169,7 @@ public class ShapeFactory
                     string? userEllipseStroke = "purple";
                     string? userEllipseStrokeWidth = "2";
                     shapes.Add(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Ellipse Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "2")
@@ -165,6 +178,7 @@ public class ShapeFactory
                     string? userEllipseStroke = "yellow";
                     string? userEllipseStrokeWidth = "2";
                     shapes.Add(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Ellipse Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -173,6 +187,7 @@ public class ShapeFactory
                     string? userEllipseStroke = "red";
                     string? userEllipseStrokeWidth = "2";
                     shapes.Add(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Ellipse Shape!\n"); ResetColor();
                     return shapes;
                 }
             }
@@ -182,6 +197,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Line(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomNumber(1, 10)));
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -202,6 +218,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
                     string? userLineStrokeWidth = ReadLine();
                     shapes.Add(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Line Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -209,6 +226,7 @@ public class ShapeFactory
                     string? userLineStroke = "red";
                     string? userLineStrokeWidth = "2";
                     shapes.Add(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Line Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "2")
@@ -216,6 +234,7 @@ public class ShapeFactory
                     string? userLineStroke = "lime";
                     string? userLineStrokeWidth = "5";
                     shapes.Add(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Line Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -223,6 +242,7 @@ public class ShapeFactory
                     string? userLineStroke = "black";
                     string? userLineStrokeWidth = "2";
                     shapes.Add(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Line Shape!\n"); ResetColor();
                     return shapes;
                 }
             }
@@ -232,6 +252,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Path("M " + RandomNumber(0, 175) + " " + RandomNumber(0, 200) + " l " + RandomNumber(0, 150) + " " + RandomNumber(0, 150), RandomColour(), RandomNumber(1, 10), RandomColour()));
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -248,6 +269,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
                     string? userPathFill = ReadLine();
                     shapes.Add(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Path Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -256,6 +278,7 @@ public class ShapeFactory
                     string? userPathStrokeWidth = "2";
                     string? userPathFill = "black";
                     shapes.Add(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Path Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "2")
@@ -264,6 +287,7 @@ public class ShapeFactory
                     string? userPathStrokeWidth = "5";
                     string? userPathFill = "red";
                     shapes.Add(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Path Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -272,6 +296,7 @@ public class ShapeFactory
                     string? userPathStrokeWidth = "3";
                     string? userPathFill = "lime";
                     shapes.Add(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Path Shape!\n"); ResetColor();
                     return shapes;
                 }
             }
@@ -281,6 +306,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Polygon(RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200), RandomColour(), RandomColour(), RandomNumber(1, 10)));
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -297,6 +323,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
                     string? userPolygonStrokeWidth = ReadLine();
                     shapes.Add(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polygon Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -305,8 +332,8 @@ public class ShapeFactory
                     string? userPolygonStroke = "purple";
                     string? userPolygonStrokeWidth = "1";
                     shapes.Add(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polygon Shape!\n"); ResetColor();
                     return shapes;
-
                 }
                 else if (userStyle == "2")
                 {
@@ -314,6 +341,7 @@ public class ShapeFactory
                     string? userPolygonStroke = "lime";
                     string? userPolygonStrokeWidth = "1";
                     shapes.Add(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polygon Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -322,6 +350,7 @@ public class ShapeFactory
                     string? userPolygonStroke = "red";
                     string? userPolygonStrokeWidth = "1";
                     shapes.Add(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polygon Shape!\n"); ResetColor();
                     return shapes;
                 }
             }
@@ -331,6 +360,7 @@ public class ShapeFactory
             if (userStyle == "R")
             {
                 shapes.Add(new Polyline(RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200), RandomColour(), RandomColour(), RandomNumber(1, 10)));
+                ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Random Shape!\n"); ResetColor();
                 return shapes;
             }
             else
@@ -347,6 +377,7 @@ public class ShapeFactory
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
                     string? userPolylineStrokeWidth = ReadLine();
                     shapes.Add(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polyline Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "1")
@@ -355,6 +386,7 @@ public class ShapeFactory
                     string? userPolylineStroke = "black";
                     string? userPolylineStrokeWidth = "3";
                     shapes.Add(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polyline Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "2")
@@ -363,6 +395,7 @@ public class ShapeFactory
                     string? userPolylineStroke = "black";
                     string? userPolylineStrokeWidth = "2";
                     shapes.Add(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polyline Shape!\n"); ResetColor();
                     return shapes;
                 }
                 else if (userStyle == "3")
@@ -371,6 +404,7 @@ public class ShapeFactory
                     string? userPolylineStroke = "black";
                     string? userPolylineStrokeWidth = "3";
                     shapes.Add(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth));
+                    ForegroundColor = ConsoleColor.Green; WriteLine("\nAdded Polyline Shape!\n"); ResetColor();
                     return shapes;
                 }
             }

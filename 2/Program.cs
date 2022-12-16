@@ -26,8 +26,6 @@ it will loop through the list and add each SVG method to the
 SVG file.
 
 */
-
-
 using System;
 using System.Drawing;
 using static System.Console;
@@ -44,8 +42,8 @@ namespace Assignment2
             var shapes = new List<Shape>(); //this is the list that holds all shapes
             ShapeFactory factory = new ShapeFactory(); // make the factory to generate shapes
 
-            string svgHeight = "400"; //default values for canvas
-            string svgWidth = "400";
+            string? svgHeight = "400"; //default values for canvas
+            string? svgWidth = "400";
 
             string svgOpening = String.Format(@"<svg height=""{0}"" width=""{1}"" xmlns=""http://www.w3.org/2000/svg"">", svgHeight, svgWidth); //this is the first line for the SVG file which lets the user change the canvas
 
@@ -57,225 +55,134 @@ namespace Assignment2
                 Clear(); //this is all console printing. I added colour because i thought it looked cool
 
                 ForegroundColor = ConsoleColor.Red; WriteLine("Shape SVG CLI"); WriteLine("By: Erikas Adzgauskas 20415984"); ResetColor();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("===================================="); ResetColor();
-
-                WriteLine("Type Shape To Add: rectangle, circle, ellipse, line, polyline, polygon, path");
-                WriteLine("To Change Canvas Size, Type: canvas");
-                WriteLine("To Export, Type: export");
-                WriteLine("To Exit, Type: exit");
-                ForegroundColor = ConsoleColor.Blue;
-                WriteLine("====================================");
-                ResetColor();
-                WriteLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("====================================\n"); ResetColor();
 
                 while (userInput == true) //this will let the user keep entering as many inputs while this is true
                 {
-                    string userRead = ReadLine();
+                    string? userRead = ReadLine();
 
-                    switch (userRead) //this is a long switch case for every input possible that the user can enter
+                    if (userRead != null) // checks if null for the split to work
                     {
-                        case "rectangle": //if the user enters rectangle, it will let the user input all variables about the shape
-                            WriteLine("Set the height:");
-                            string userHeight = ReadLine();
-                            WriteLine("Set the width:");
-                            string userWitdh = ReadLine();
-                            WriteLine("Set the X:");
-                            string userRecX = ReadLine();
-                            WriteLine("Set the Y:");
-                            string userRecY = ReadLine();
-                            WriteLine("Enter Fill Colour:");
-                            string userFill = ReadLine();
-                            WriteLine("Enter Stroke Colour:");
-                            string userRecStrokeColour = ReadLine();
-                            WriteLine("Enter Stroke Width:");
-                            string valRecStrokeWidth = ReadLine();
-                            WriteLine("Enter Fill Opacity:");
-                            string userRecFillOpacity = ReadLine();
-                            WriteLine("Enter Stroke Opacity:");
-                            string userRecStrokeOpacity = ReadLine();
+                        string[] parts = userRead.Split(' '); //splits the shape and A
+                        if (parts[0] == "A") //if this is A, then the user wants to add a shape
+                        {
+                            ForegroundColor = ConsoleColor.Blue; WriteLine("\nWould you like to style the " + parts[1] + " manually or apply style 1, 2 or 3, or randomly generate?"); ResetColor();
+                            ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2, 3 or R:"); ResetColor();
+                            string? userStyle = ReadLine();
 
-                            shapes.Add(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, valRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity)); //this will add all the variables to the list
-
-                            WriteLine("\nRectangle Added!\n");
-
-                            break;
-
-                        case "circle": //all these shape cases are the same as rectangle except to their own unique shape
-                            WriteLine("Set the radius:");
-                            string userCr = ReadLine();
-                            WriteLine("Set the circle X:");
-                            string userCx = ReadLine();
-                            WriteLine("Set the circle Y:");
-                            string userCy = ReadLine();
-                            WriteLine("Enter Stroke Colour:");
-                            string userCircleStroke = ReadLine();
-                            WriteLine("Enter Stroke Witdh:");
-                            string userCircleStrokeWidth = ReadLine();
-                            WriteLine("Enter Fill Colour:");
-                            string userCircleFill = ReadLine();
-
-                            shapes.Add(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill));
-
-                            WriteLine("\nCircle Added!\n");
-
-                            break;
-
-                        case "ellipse":
-                            WriteLine("Set the position X:");
-                            string userEx = ReadLine();
-                            WriteLine("Set the position Y:");
-                            string userEy = ReadLine();
-                            WriteLine("Set the radius X:");
-                            string userEr1 = ReadLine();
-                            WriteLine("Set the radius Y:");
-                            string userEr2 = ReadLine();
-                            WriteLine("Enter Fill Colour:");
-                            string userEllipseFill = ReadLine();
-                            WriteLine("Enter Stroke Colour:");
-                            string userEllipseStroke = ReadLine();
-                            WriteLine("Enter Stroke Width:");
-                            string userEllipseStrokeWidth = ReadLine();
-
-                            shapes.Add(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth));
-
-                            WriteLine("\nEllipse Added!\n");
-
-                            break;
-
-                        case "line":
-                            WriteLine("Set the X1:");
-                            string userLineX1 = ReadLine();
-                            WriteLine("Set the Y1:");
-                            string userLineY1 = ReadLine();
-                            WriteLine("Set the X2:");
-                            string userLineX2 = ReadLine();
-                            WriteLine("Set the Y2:");
-                            string userLineY2 = ReadLine();
-                            WriteLine("Enter Stroke Colour: (string)");
-                            string userLineStroke = ReadLine();
-                            WriteLine("Enter Stroke Width: (string)");
-                            string userLineStrokeWidth = ReadLine();
-
-                            shapes.Add(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth));
-
-                            WriteLine("\nLine Added!\n");
-
-                            break;
-
-                        case "polyline":
-                            WriteLine("Enter the polyline points: (E.g. 20,20 40,25 60,40 80,120 120,140 200,180)");
-                            string userPoint = ReadLine();
-                            WriteLine("Enter Fill Colour: (string) (can enter: none)");
-                            string userPolylineFill = ReadLine();
-                            WriteLine("Enter Stroke Colour: (string)");
-                            string userPolylineStroke = ReadLine();
-                            WriteLine("Enter Stroke Width: (string)");
-                            string userPolylineStrokeWidth = ReadLine();
-
-
-                            shapes.Add(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth));
-
-                            WriteLine("\nPolyline Added!\n");
-
-                            break;
-
-                        case "polygon":
-                            WriteLine("Enter the polygon points: (E.g. 200,10 250,190 160,210)");
-                            string userPointGon = ReadLine();
-                            WriteLine("Enter Fill Colour: (string)");
-                            string userPolygonFill = ReadLine();
-                            WriteLine("Enter Stroke Colour: (string)");
-                            string userPolygonStroke = ReadLine();
-                            WriteLine("Enter Stroke Width: (string)");
-                            string userPolygonStrokeWidth = ReadLine();
-
-                            shapes.Add(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth));
-
-                            WriteLine("\nPolygon Added!\n");
-
-                            break;
-
-                        case "path":
-                            WriteLine("Enter the path points: (E.g. M 175 200 l 150 0)");
-                            string userPath = ReadLine();
-                            WriteLine("Enter Stroke Colour: (string)");
-                            string userPathStroke = ReadLine();
-                            WriteLine("Enter Stroke Width: (string)");
-                            string userPathStrokeWidth = ReadLine();
-                            WriteLine("Enter Fill Colour: (string)");
-                            string userPathFill = ReadLine();
-
-                            shapes.Add(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill));
-
-                            WriteLine("\nPath Added!\n");
-
-                            break;
-
-                        case "canvas": //this lets the user enter the canvas height and width
-                            WriteLine("\nEnter Canvas Height:");
-                            string userSvgHeight = ReadLine();
-                            WriteLine("Enter Canvas Width:");
-                            string userSvgWidth = ReadLine();
-
-                            svgHeight = userSvgHeight; //this overwrites the current canvas height and width
-                            svgWidth = userSvgWidth;
-                            svgOpening = String.Format(@"<svg height=""{0}"" width=""{1}"" xmlns=""http://www.w3.org/2000/svg"">", svgHeight, svgWidth);
-                            svgOpen = svgOpening + Environment.NewLine;
-
-                            WriteLine("\nCanvas Has Been Modified!\n");
-
-                            break;
-
-                        case "export":
-                            userInput = false; //ends the user input
-
-                            string allshapes = "";
-                            int length = shapes.Count; //gets the length of the list of shapes
-
-                            for (int i = 0; i < length; i++) //while it goes through the list of shapes, it will add each ToString from every shape
+                            while (userStyle != "M" && userStyle != "1" && userStyle != "2" && userStyle != "3" && userStyle != "R") //keep asking for input if none of the options are inputted
                             {
-                                allshapes = allshapes + Convert.ToString(shapes[i]);
+                                ForegroundColor = ConsoleColor.Red; WriteLine("\nInvalid Input!\n"); ResetColor();
+                                ForegroundColor = ConsoleColor.Blue; WriteLine("TYPE: M, 1, 2, 3 or R:"); ResetColor();
+                                userStyle = ReadLine();
                             }
+                            factory.generateShape(parts[1], userStyle, shapes); //send the info to the factory to make the shape 
+                        }
+                        else
+                        {
+                            switch (userRead) //this is a long switch case for every input possible that the user can enter
+                            {   //these shapes are using methods in which the user and canvas are being sent
+                                case "V": //change canvas size
+                                    svgHeight = ChangeCanvasHeight(svgHeight);
+                                    svgWidth = ChangeCanvasWidth(svgWidth);
+                                    svgOpening = String.Format(@"<svg height=""{0}"" width=""{1}"" xmlns=""http://www.w3.org/2000/svg"">", svgHeight, svgWidth);
+                                    svgOpen = svgOpening + Environment.NewLine;
+                                    ForegroundColor = ConsoleColor.Green; WriteLine("\nCanvas Updated!\n"); ResetColor();
+                                    break;
 
-                            File.WriteAllText(@"./newSVG.svg", svgOpen + "".PadLeft(3, ' ') + allshapes + Environment.NewLine + svgClose); //file creation here
+                                case "E": //export
+                                    userInput = false;
+                                    Export(svgOpen, svgClose, shapes);
+                                    break;
 
-                            WriteLine("\nSVG Exported!\n");
+                                case "exit": //exit
+                                    userInput = false;
+                                    ForegroundColor = ConsoleColor.Green; WriteLine("\nGoodbye!\n"); ResetColor();
+                                    break;
 
-                            break;
+                                case "Q": //exit
+                                    userInput = false;
+                                    ForegroundColor = ConsoleColor.Green; WriteLine("\nGoodbye!\n"); ResetColor();
+                                    break;
 
-                        case "exit":
-                            userInput = false; //ends the user input so that the programme can close
-                            break;
+                                case "H": //display help
+                                    ForegroundColor = ConsoleColor.Green; WriteLine("\nCommands:"); ResetColor();
+                                    WriteLine("H               Help - displays this message\nA <shape>       Add <shape> to canvas\nS               See list of shapes\nT               Delete Last Shape\nV               Change Canvas Size\nD               Display canvas to console\nE               Export canvas\nO               Clear Console\nQ               Quit application\n");
+                                    break;
 
-                        case "hello":
-                            WriteLine("\nHello!\n"); //hello :)
-                            break;
+                                case "S": //display list of shapes you can add
+                                    ForegroundColor = ConsoleColor.Green; WriteLine("\nList of Shapes:"); ResetColor();
+                                    WriteLine("A rectangle\nA circle\nA ellipse\nA line\nA path\nA polygon\nA polyline\n");
+                                    break;
+
+                                case "D": //display the svg to console
+                                    ForegroundColor = ConsoleColor.Green; WriteLine("\nDisplaying SVG To Console:\n"); ResetColor();
+                                    WriteLine(svgOpen);
+                                    string? allshapes = "";
+                                    int length = shapes.Count; //gets the length of the list of shapes
+
+                                    for (int i = 0; i < length; i++) //while it goes through the list of shapes, it will add each ToString from every shape
+                                    {
+                                        allshapes = Convert.ToString(shapes[i]);
+                                        WriteLine(allshapes);
+                                    }
+                                    WriteLine(svgClose + "\n");
+                                    break;
+
+                                case "T": //delete command
+                                    try
+                                    {
+                                        int shapesLength = shapes.Count;
+                                        Shape deleteShape = shapes[shapesLength - 1];
+                                        shapes.RemoveAt(shapesLength - 1);
+                                        ForegroundColor = ConsoleColor.Green; WriteLine("\nRemoved Shape:\n" + deleteShape.ToString() + "\n"); ResetColor();
+                                    }
+                                    catch
+                                    {
+                                        ForegroundColor = ConsoleColor.Red; WriteLine("\nERROR: Shape could not be deleted!\n"); ResetColor();
+                                    }
+                                    break;
+
+                                case "O": //clear console command
+                                    Clear();
+                                    break;
+
+                                case "hello": //hello
+                                    ForegroundColor = ConsoleColor.DarkMagenta; WriteLine("\nHello!\n"); ResetColor();
+                                    break;
+
+                                default: //default case if user does not enter any other case
+                                    ForegroundColor = ConsoleColor.Red; WriteLine("\nInvalid Input! - Type 'H' for commands!\n"); ResetColor();
+                                    break;
+                            }
+                        }
                     }
                 }
                 programRun = false;
             }
         }
+        public static void Export(string? svgOpen, string? svgClose, List<Shape> shapes) //~ EXPORT
+        {
+            string allshapes = "";
+            int length = shapes.Count; //gets the length of the list of shapes
+            for (int i = 0; i < length; i++) //while it goes through the list of shapes, it will add each ToString from every shape
+            {
+                allshapes = allshapes + "\n" + Convert.ToString(shapes[i]);
+            }
+            File.WriteAllText(@"./newSVG.svg", svgOpen + "".PadLeft(3, ' ') + allshapes + Environment.NewLine + svgClose); //file creation here
+            WriteLine("\nSVG Exported!\n");
+        }
+        public static string? ChangeCanvasHeight(string? svgHeight) //~ CHANGE CANVAS HEIGHT
+        {
+            ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter Canvas Height:"); ResetColor();
+            string? userSvgHeight = ReadLine();
+            return userSvgHeight;
+        }
+        public static string? ChangeCanvasWidth(string? svgWidth) //~ CHANGE CANVAS WIDTH
+        {
+            ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Canvas Width:"); ResetColor();
+            string? userSvgWidth = ReadLine();
+            return userSvgWidth;
+        }
     }
 }
-
-
-
-
-
-
-// case "export":
-//     userInput = false; //ends the user input
-
-//     string allshapes = "";
-//     int length = shapes.Count; //gets the length of the list of shapes
-
-//     for (int i = 0; i < length; i++) //while it goes through the list of shapes, it will add each ToString from every shape
-//     {
-//         allshapes = allshapes + Convert.ToString(shapes[i]);
-//     }
-
-//     File.WriteAllText(@"./newSVG.svg", svgOpen + "".PadLeft(3, ' ') + allshapes + Environment.NewLine + svgClose); //file creation here
-
-//     WriteLine("\nSVG Exported!\n");
-
-//     break;
