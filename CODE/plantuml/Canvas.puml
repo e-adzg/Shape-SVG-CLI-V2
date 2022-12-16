@@ -1,0 +1,8 @@
+@startuml
+class Canvas {
+    + Add(shape:Shape) : void
+    + Remove() : Shape
+    + Canvas()
+    + <<override>> ToString() : string
+}
+@enduml

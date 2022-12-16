@@ -1,0 +1,10 @@
+@startuml
+class AddShapeCommand {
+    + AddShapeCommand(s:Shape, c:Canvas)
+    + <<override>> Do() : void
+    + <<override>> Undo() : void
+}
+Command <|-- AddShapeCommand
+AddShapeCommand --> "shape" Shape
+AddShapeCommand --> "canvas" Canvas
+@enduml

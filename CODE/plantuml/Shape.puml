@@ -1,0 +1,80 @@
+@startuml
+abstract class Shape {
+    + <<override>> ToString() : string
+}
+class Rectangle {
+    + rx : string?
+    + ry : string?
+    + rH : string?
+    + rW : string?
+    + recFill : string?
+    + recStroke : string?
+    + recStrokeWidth : string?
+    + recFillOpacity : string?
+    + recStrokeOpacity : string?
+    + Rectangle(rx:string?, ry:string?, rH:string?, rW:string?, recFill:string?, recStroke:string?, recStrokeWidth:string?, recFillOpacity:string?, recStrokeOpacity:string?)
+    + <<override>> ToString() : string
+}
+class Polyline {
+    + points : string?
+    + polylineFill : string?
+    + polylineStroke : string?
+    + polylineStrokeWidth : string?
+    + Polyline(points:string?, polylineFill:string?, polylineStroke:string?, polylineStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+class Polygon {
+    + GonPoints : string?
+    + polygonFill : string?
+    + polygonStroke : string?
+    + polygonStrokeWidth : string?
+    + Polygon(GonPoints:string?, polygonFill:string?, polygonStroke:string?, polygonStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+class Path {
+    + path : string?
+    + pathStroke : string?
+    + pathStrokeWidth : string?
+    + pathStrokeFill : string?
+    + Path(path:string?, pathStroke:string?, pathStrokeWidth:string?, pathStrokeFill:string?)
+    + <<override>> ToString() : string
+}
+class Line {
+    + x1 : string?
+    + y1 : string?
+    + x2 : string?
+    + y2 : string?
+    + lineStroke : string?
+    + lineStrokeWidth : string?
+    + Line(x1:string?, y1:string?, x2:string?, y2:string?, lineStroke:string?, lineStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+class Ellipse {
+    + ex : string?
+    + ey : string?
+    + er1 : string?
+    + er2 : string?
+    + ellipseFill : string?
+    + ellipseStroke : string?
+    + ellipseStrokeWidth : string?
+    + Ellipse(ex:string?, ey:string?, er1:string?, er2:string?, ellipseFill:string?, ellipseStroke:string?, ellipseStrokeWidth:string?)
+    + <<override>> ToString() : string
+}
+class Circle {
+    + cr : string?
+    + cx : string?
+    + cy : string?
+    + circleStroke : string?
+    + circleStrokeWidth : string?
+    + circleFill : string?
+    + Circle(cr:string?, cx:string?, cy:string?, circleStroke:string?, circleStrokeWidth:string?, circleFill:string?)
+    + <<override>> ToString() : string
+}
+Shape <|-- Rectangle
+Shape <|-- Polyline
+Shape <|-- Polygon
+Shape <|-- Path
+Shape <|-- Line
+Shape <|-- Ellipse
+Shape <|-- Circle
+@enduml

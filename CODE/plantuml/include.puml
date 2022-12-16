@@ -1,0 +1,15 @@
+@startuml
+!include .\\AddShapeCommand.puml
+!include .\\Canvas.puml
+!include .\\Command.puml
+!include .\\DeleteShapeCommand.puml
+!include .\\Program.puml
+!include .\\Shape.puml
+!include .\\ShapeFactory.puml
+!include .\\User.puml
+!include .\\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Debug\net6.0\Assignment2.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\Assignment2.GlobalUsings.g.puml
+!include .\\obj\Debug\net6.0\Assignment3.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\Assignment3.GlobalUsings.g.puml
+@enduml

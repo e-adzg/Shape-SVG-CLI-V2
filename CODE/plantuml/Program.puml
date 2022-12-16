@@ -1,0 +1,8 @@
+@startuml
+class Program {
+    {static} Main(args:string[]) : void
+    + {static} Export(svgOpen:string?, svgClose:string?, canvas:Canvas) : void
+    + {static} ChangeCanvasHeight(svgHeight:string?) : string?
+    + {static} ChangeCanvasWidth(svgWidth:string?) : string?
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class ShapeFactory {
+    + generateShape(user:User, canvas:Canvas, typeOfShape:string, userStyle:string) : void
+    + RandomNumber(min:int, max:int) : string
+    + RandomColour() : string
+    + RandomDouble(min:double, max:double) : string
+}
+@enduml
