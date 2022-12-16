@@ -6,7 +6,7 @@ Implemented Undo/Redo using the Command Pattern!
 
 V2: More options to create shapes, added abstract factory pattern and error handling!
 
-[![Alt text](READMEPICTURE.png)](https://www.youtube.com/watch?v=90QqkQNzMFk&ab_channel=TheJazzHopCaf%C3%A9)
+[![Alt text](READMEPIC.png)](https://www.youtube.com/watch?v=90QqkQNzMFk&ab_channel=TheJazzHopCaf%C3%A9)
 
 ## PlantUML
 
