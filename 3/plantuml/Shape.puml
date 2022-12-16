@@ -1,7 +1,0 @@
-@startuml
-interface Shape {
-}
-class "List`1"<T> {
-}
-Shape o-> "shapes<Shape>" "List`1"
-@enduml

@@ -17,6 +17,10 @@ the shapes are stored into a list of shapes. all functionality is through a list
 PATTERN:
 Abstract Factory Pattern is used to generate a shape. Check ShapeFactory.cs to see more.
 Style objects are implemented with the shape facotry also. It saves having the fact to completely seperate them.
+
+PLANT UML:
+for pdf/png of diagram see out/plantuml/include folder
+for plantuml code see plantuml folder
 */
 
 using System;
@@ -71,6 +75,10 @@ namespace Assignment2
                             }
                             factory.generateShape(parts[1], userStyle, shapes); //send the info to the factory to make the shape 
                         }
+                        else if (parts[0] == "R") //add a shape randomly
+                        {
+                            factory.generateShape(parts[1], parts[0], shapes); //send the info to the factory to make the shape! 
+                        }
                         else
                         {
                             switch (userRead) //this is a long switch case for every input possible that the user can enter
@@ -100,7 +108,7 @@ namespace Assignment2
 
                                 case "H": //display help
                                     ForegroundColor = ConsoleColor.Green; WriteLine("\nCommands:"); ResetColor();
-                                    WriteLine("H               Help - displays this message\nA <shape>       Add <shape> to canvas\nS               See list of shapes\nT               Delete Last Shape\nV               Change Canvas Size\nD               Display canvas to console\nE               Export canvas\nO               Clear Console\nQ               Quit application\n");
+                                    WriteLine("H               Help - displays this message\nA <shape>       Add <shape> to canvas\nR <shape>       Add <shape> with random values to canvas\nS               See list of shapes\nT               Delete Last Shape\nV               Change Canvas Size\nD               Display canvas to console\nE               Export canvas\nO               Clear Console\nQ               Quit application\n");
                                     break;
 
                                 case "S": //display list of shapes you can add

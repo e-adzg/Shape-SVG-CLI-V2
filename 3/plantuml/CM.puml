@@ -1,7 +1,0 @@
-@startuml
-class CM {
-    + CM(state:string)
-    + GetState() : string
-}
-IMemento <|-- CM
-@enduml

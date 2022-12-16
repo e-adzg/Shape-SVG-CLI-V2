@@ -1,5 +1,0 @@
-@startuml
-interface IMemento {
-    GetState() : string
-}
-@enduml
