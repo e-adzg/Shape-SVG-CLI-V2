@@ -345,7 +345,7 @@ public class ShapeFactory
         }
     }
 
-    public string RandomNumber(int min, int max)
+    public string RandomNumber(int min, int max) //~ GENERATE RANDOM NUMBER
     {
         Random r = new Random();
         int randomInt = r.Next(min, max);
@@ -353,7 +353,7 @@ public class ShapeFactory
         return randomString;
     }
 
-    public string RandomColour()
+    public string RandomColour() //~ GENERATE RANDOM COLOUR
     {
         Random r = new Random();
         var options = new List<string> { "red", "lime", "blue", "purple", "black" };
@@ -363,7 +363,7 @@ public class ShapeFactory
         return fill;
     }
 
-    public string RandomDouble(double min, double max)
+    public string RandomDouble(double min, double max) //~ GENERATE RANDOM DOUBLE
     {
         Random random = new Random();
         double randomDouble = random.NextDouble() * (max - min) + min;

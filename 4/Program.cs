@@ -153,21 +153,21 @@ namespace Assignment4
                 }
                 programRun = false;
             }
-        } // the rest are methods to handle everything. they are pretty straight forward.
-        public static void Export(string? svgOpen, string? svgClose, Canvas canvas)
+        }
+        public static void Export(string? svgOpen, string? svgClose, Canvas canvas) //~ EXPORT
         {
             ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter File Name:"); ResetColor();
             string? svgName = ReadLine();
             File.WriteAllText(@"./" + svgName + ".svg", svgOpen + Environment.NewLine + canvas.ToString() + Environment.NewLine + svgClose);
             ForegroundColor = ConsoleColor.Green; WriteLine("\nSVG Exported!\n"); ResetColor();
         }
-        public static string? ChangeCanvasHeight(string? svgHeight)
+        public static string? ChangeCanvasHeight(string? svgHeight) //~ CHANGE CANVAS HEIGHT
         {
             ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter Canvas Height:"); ResetColor();
             string? userSvgHeight = ReadLine();
             return userSvgHeight;
         }
-        public static string? ChangeCanvasWidth(string? svgWidth)
+        public static string? ChangeCanvasWidth(string? svgWidth) //~ CHANGE CANVAS WIDTH
         {
             ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Canvas Width:"); ResetColor();
             string? userSvgWidth = ReadLine();
