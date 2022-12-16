@@ -1,9 +1,13 @@
 ﻿/*
+Student Name: Erikas Adzgauskas
+Student Number: 20415984
+
 This is my SVG Maker. I am using NET 6.0. 
 Tested on Windows 11 Pro in VSCode 1.73.0
 
 HOW TO USE:
-to run programme, type 'dotnet run' in  for example, if you want to make a rectangle, you would type 'A rectangle' then, input all of the co-ordinates and CSS styles you wish to add. you have the option to use pre made styles with options 1, 2 or 3 that i made. all inputs take in string, so to add colour, you can type 'lime'. inputs accepts decimals where appropriate.
+to run programme, type 'dotnet run' in  for example, if you want to make a rectangle, you would type 'A rectangle' then, input all of the co-ordinates and CSS styles you wish to add. you have the option to use pre made styles with options 1, 2 or 3 that i made or type R to add random values to it. all inputs take in string, so to add colour, you can type 'lime'. inputs accepts decimals where appropriate.
+
 
 TO EXPORT:
 after adding shapes, you can type 'E' to make a SVG file. Enter the name of the SVG file and then the program will terminate and a new SVG file will be made in the same folder here.
@@ -15,7 +19,6 @@ PATTERN:
 Abstract Factory Pattern is used to generate a shape. Check ShapeFactory.cs to see more.
 Style objects are implemented with the shape facotry also. It saves having the fact to completely seperate them.
 */
-
 
 using static System.Console;
 using System;

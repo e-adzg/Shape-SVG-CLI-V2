@@ -3,29 +3,22 @@ Student Name: Erikas Adzgauskas
 Student Number: 20415984
 
 This is my SVG Maker. I am using NET 6.0. 
-Tested on Windows 11 in VSCode 1.72.2
+Tested on Windows 11 Pro in VSCode 1.73.0
 
 HOW TO USE:
-to run programme, type 'dotnet run' in  
-a list of instructions are printed to the 
-for example, if you want to make a rectangle, you would type 'rectangle'
-then, input all of the co-ordinates and CSS styles you wish to add.
-all inputs take in string, so to add colour, you can type 'lime'
-inputs accepts decimals where appropriate.
+to run programme, type 'dotnet run' in  for example, if you want to make a rectangle, you would type 'A rectangle' then, input all of the co-ordinates and CSS styles you wish to add. you have the option to use pre made styles with options 1, 2 or 3 that i made or type R to add random values to it. all inputs take in string, so to add colour, you can type 'lime'. inputs accepts decimals where appropriate.
 
 TO EXPORT:
-after adding shapes, you can type 'export' to make a SVG file
-and the programme will terminate and a new SVG file will
-be made in the same folder here.
+after adding shapes, you can type 'E' to make a SVG file. Enter the name of the SVG file and then the program will terminate and a new SVG file will be made in the same folder here.
 
 CODE CONTEXT:
-a list holds all shapes. the interface shape extends to all
-other shapes. after creating a new shape, it will be added 
-to the shapes list. at the end, when the user wants to export,
-it will loop through the list and add each SVG method to the
-SVG file.
+the shapes are stored into a list of shapes. all functionality is through a list called shapes such as deleting, adding. the shape class uses inheritance to expand across all shapes in the Shape.cs class
 
+PATTERN:
+Abstract Factory Pattern is used to generate a shape. Check ShapeFactory.cs to see more.
+Style objects are implemented with the shape facotry also. It saves having the fact to completely seperate them.
 */
+
 using System;
 using System.Drawing;
 using static System.Console;
@@ -165,11 +158,13 @@ namespace Assignment2
         {
             string allshapes = "";
             int length = shapes.Count; //gets the length of the list of shapes
+            ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter File Name:"); ResetColor();
+            string? svgName = ReadLine();
             for (int i = 0; i < length; i++) //while it goes through the list of shapes, it will add each ToString from every shape
             {
                 allshapes = allshapes + "\n" + Convert.ToString(shapes[i]);
             }
-            File.WriteAllText(@"./newSVG.svg", svgOpen + "".PadLeft(3, ' ') + allshapes + Environment.NewLine + svgClose); //file creation here
+            File.WriteAllText(@"./" + svgName + ".svg", svgOpen + "".PadLeft(3, ' ') + allshapes + Environment.NewLine + svgClose); //file creation here
             WriteLine("\nSVG Exported!\n");
         }
         public static string? ChangeCanvasHeight(string? svgHeight) //~ CHANGE CANVAS HEIGHT
