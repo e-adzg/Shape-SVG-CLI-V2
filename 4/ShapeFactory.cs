@@ -15,7 +15,7 @@ public class ShapeFactory
                 ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the height:"); ResetColor();
                 string? userHeight = ReadLine();
                 ForegroundColor = ConsoleColor.Blue; WriteLine("Set the width:"); ResetColor();
-                string? userWitdh = ReadLine();
+                string? userWidth = ReadLine();
                 ForegroundColor = ConsoleColor.Blue; WriteLine("Set the X:"); ResetColor();
                 string? userRecX = ReadLine();
                 ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y:"); ResetColor();
@@ -33,7 +33,7 @@ public class ShapeFactory
                     string? userRecFillOpacity = ReadLine();
                     ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Opacity:"); ResetColor();
                     string? userRecStrokeOpacity = ReadLine();
-                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
                 }
                 else if (userStyle == "1")
                 {
@@ -42,7 +42,7 @@ public class ShapeFactory
                     string? userRecStrokeWidth = "5";
                     string? userRecFillOpacity = "0.1";
                     string? userRecStrokeOpacity = "0.9";
-                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
                 }
                 else if (userStyle == "2")
                 {
@@ -51,7 +51,7 @@ public class ShapeFactory
                     string? userRecStrokeWidth = "5";
                     string? userRecFillOpacity = "1";
                     string? userRecStrokeOpacity = "0.5";
-                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
                 }
                 else if (userStyle == "3")
                 {
@@ -60,242 +60,283 @@ public class ShapeFactory
                     string? userRecStrokeWidth = "5";
                     string? userRecFillOpacity = "1";
                     string? userRecStrokeOpacity = "0.9";
-                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWitdh, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
+                    user.Action(new AddShapeCommand(new Rectangle(userRecX, userRecY, userHeight, userWidth, userFill, userRecStrokeColour, userRecStrokeWidth, userRecFillOpacity, userRecStrokeOpacity), canvas));
                 }
             }
         }
         else if (typeOfShape == "circle")                                                           //^   CIRCLE
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the radius:"); ResetColor();
-            string? userCr = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the circle X:"); ResetColor();
-            string? userCx = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the circle Y:"); ResetColor();
-            string? userCy = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Circle(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomDouble(0, 1), RandomColour()), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the radius:"); ResetColor();
+                string? userCr = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the circle X:"); ResetColor();
+                string? userCx = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the circle Y:"); ResetColor();
+                string? userCy = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userCircleStroke = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Witdh:"); ResetColor();
-                string? userCircleStrokeWidth = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-                string? userCircleFill = ReadLine();
-                user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
-            }
-            else if (userStyle == "1")
-            {
-                string? userCircleStroke = "black";
-                string? userCircleStrokeWidth = "5";
-                string? userCircleFill = "red";
-                user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userCircleStroke = "lime";
-                string? userCircleStrokeWidth = "5";
-                string? userCircleFill = "black";
-                user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userCircleStroke = "red";
-                string? userCircleStrokeWidth = "5";
-                string? userCircleFill = "black";
-                user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userCircleStroke = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userCircleStrokeWidth = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                    string? userCircleFill = ReadLine();
+                    user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userCircleStroke = "black";
+                    string? userCircleStrokeWidth = "5";
+                    string? userCircleFill = "red";
+                    user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userCircleStroke = "lime";
+                    string? userCircleStrokeWidth = "5";
+                    string? userCircleFill = "black";
+                    user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userCircleStroke = "red";
+                    string? userCircleStrokeWidth = "5";
+                    string? userCircleFill = "black";
+                    user.Action(new AddShapeCommand(new Circle(userCr, userCx, userCy, userCircleStroke, userCircleStrokeWidth, userCircleFill), canvas));
+                }
             }
         }
         else if (typeOfShape == "ellipse")                                                          //^   ELLIPSE
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the position X:"); ResetColor();
-            string? userEx = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the position Y:"); ResetColor();
-            string? userEy = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the radius X:"); ResetColor();
-            string? userEr1 = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the radius Y:"); ResetColor();
-            string? userEr2 = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Ellipse(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomColour(), RandomDouble(0, 1)), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the position X:"); ResetColor();
+                string? userEx = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the position Y:"); ResetColor();
+                string? userEy = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the radius X:"); ResetColor();
+                string? userEr1 = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the radius Y:"); ResetColor();
+                string? userEr2 = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-                string? userEllipseFill = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userEllipseStroke = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-                string? userEllipseStrokeWidth = ReadLine();
-                user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                    string? userEllipseFill = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userEllipseStroke = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userEllipseStrokeWidth = ReadLine();
+                    user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userEllipseFill = "yellow";
+                    string? userEllipseStroke = "purple";
+                    string? userEllipseStrokeWidth = "2";
+                    user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userEllipseFill = "purple";
+                    string? userEllipseStroke = "yellow";
+                    string? userEllipseStrokeWidth = "2";
+                    user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userEllipseFill = "lime";
+                    string? userEllipseStroke = "red";
+                    string? userEllipseStrokeWidth = "2";
+                    user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
+                }
             }
-            else if (userStyle == "1")
-            {
-                string? userEllipseFill = "yellow";
-                string? userEllipseStroke = "purple";
-                string? userEllipseStrokeWidth = "2";
-                user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userEllipseFill = "purple";
-                string? userEllipseStroke = "yellow";
-                string? userEllipseStrokeWidth = "2";
-                user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userEllipseFill = "lime";
-                string? userEllipseStroke = "red";
-                string? userEllipseStrokeWidth = "2";
-                user.Action(new AddShapeCommand(new Ellipse(userEx, userEy, userEr1, userEr2, userEllipseFill, userEllipseStroke, userEllipseStrokeWidth), canvas));
-            }
-
         }
         else if (typeOfShape == "line")                                                          //^   LINE
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the X1:"); ResetColor();
-            string? userLineX1 = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y1:"); ResetColor();
-            string? userLineY1 = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the X2:"); ResetColor();
-            string? userLineX2 = ReadLine();
-            ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y2:"); ResetColor();
-            string? userLineY2 = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Line(RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomNumber(0, 400), RandomColour(), RandomNumber(1, 10)), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nSet the X1:"); ResetColor();
+                string? userLineX1 = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y1:"); ResetColor();
+                string? userLineY1 = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the X2:"); ResetColor();
+                string? userLineX2 = ReadLine();
+                ForegroundColor = ConsoleColor.Blue; WriteLine("Set the Y2:"); ResetColor();
+                string? userLineY2 = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userLineStroke = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-                string? userLineStrokeWidth = ReadLine();
-                user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
-            }
-            else if (userStyle == "1")
-            {
-                string? userLineStroke = "red";
-                string? userLineStrokeWidth = "2";
-                user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userLineStroke = "lime";
-                string? userLineStrokeWidth = "5";
-                user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userLineStroke = "black";
-                string? userLineStrokeWidth = "2";
-                user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userLineStroke = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userLineStrokeWidth = ReadLine();
+                    user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userLineStroke = "red";
+                    string? userLineStrokeWidth = "2";
+                    user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userLineStroke = "lime";
+                    string? userLineStrokeWidth = "5";
+                    user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userLineStroke = "black";
+                    string? userLineStrokeWidth = "2";
+                    user.Action(new AddShapeCommand(new Line(userLineX1, userLineY1, userLineX2, userLineY2, userLineStroke, userLineStrokeWidth), canvas));
+                }
             }
         }
         else if (typeOfShape == "path")                                                          //^   PATH
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter the path points: (E.g. M 175 200 l 150 0)"); ResetColor();
-            string? userPath = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Path("M " + RandomNumber(0, 175) + " " + RandomNumber(0, 200) + " l " + RandomNumber(0, 150) + " " + RandomNumber(0, 150), RandomColour(), RandomNumber(1, 10), RandomColour()), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter the path points: (E.g. M 175 200 l 150 0)"); ResetColor();
+                string? userPath = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userPathStroke = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-                string? userPathStrokeWidth = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-                string? userPathFill = ReadLine();
-                user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
-            }
-            else if (userStyle == "1")
-            {
-                string? userPathStroke = "red";
-                string? userPathStrokeWidth = "2";
-                string? userPathFill = "black";
-                user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userPathStroke = "green";
-                string? userPathStrokeWidth = "5";
-                string? userPathFill = "red";
-                user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userPathStroke = "black";
-                string? userPathStrokeWidth = "3";
-                string? userPathFill = "lime";
-                user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userPathStroke = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userPathStrokeWidth = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                    string? userPathFill = ReadLine();
+                    user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userPathStroke = "red";
+                    string? userPathStrokeWidth = "2";
+                    string? userPathFill = "black";
+                    user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userPathStroke = "green";
+                    string? userPathStrokeWidth = "5";
+                    string? userPathFill = "red";
+                    user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userPathStroke = "black";
+                    string? userPathStrokeWidth = "3";
+                    string? userPathFill = "lime";
+                    user.Action(new AddShapeCommand(new Path(userPath, userPathStroke, userPathStrokeWidth, userPathFill), canvas));
+                }
             }
         }
         else if (typeOfShape == "polygon")                                                          //^   POLYGON
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter the polygon points: (E.g. 200,10 250,190 160,210)"); ResetColor();
-            string? userPointGon = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Polygon(RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200), RandomColour(), RandomColour(), RandomNumber(1, 10)), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter the polygon points: (E.g. 200,10 250,190 160,210)"); ResetColor();
+                string? userPointGon = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-                string? userPolygonFill = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userPolygonStroke = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-                string? userPolygonStrokeWidth = ReadLine();
-                user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
-            }
-            else if (userStyle == "1")
-            {
-                string? userPolygonFill = "lime";
-                string? userPolygonStroke = "purple";
-                string? userPolygonStrokeWidth = "1";
-                user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userPolygonFill = "purple";
-                string? userPolygonStroke = "lime";
-                string? userPolygonStrokeWidth = "1";
-                user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userPolygonFill = "black";
-                string? userPolygonStroke = "red";
-                string? userPolygonStrokeWidth = "1";
-                user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                    string? userPolygonFill = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userPolygonStroke = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userPolygonStrokeWidth = ReadLine();
+                    user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userPolygonFill = "lime";
+                    string? userPolygonStroke = "purple";
+                    string? userPolygonStrokeWidth = "1";
+                    user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userPolygonFill = "purple";
+                    string? userPolygonStroke = "lime";
+                    string? userPolygonStrokeWidth = "1";
+                    user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userPolygonFill = "black";
+                    string? userPolygonStroke = "red";
+                    string? userPolygonStrokeWidth = "1";
+                    user.Action(new AddShapeCommand(new Polygon(userPointGon, userPolygonFill, userPolygonStroke, userPolygonStrokeWidth), canvas));
+                }
             }
         }
         else if (typeOfShape == "polyline")                                                          //^   POLYLINE
         {
-            ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter the polyline points: (E.g. 20,20 40,25 60,40 80,120 120,140 200,180)"); ResetColor();
-            string? userPoint = ReadLine();
+            if (userStyle == "R")
+            {
+                user.Action(new AddShapeCommand(new Polyline(RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200) + " " + RandomNumber(0, 200) + "," + RandomNumber(0, 200), RandomColour(), RandomColour(), RandomNumber(1, 10)), canvas));
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Blue; WriteLine("\nEnter the polyline points: (E.g. 20,20 40,25 60,40 80,120 120,140 200,180)"); ResetColor();
+                string? userPoint = ReadLine();
 
-            if (userStyle == "M")
-            {
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
-                string? userPolylineFill = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
-                string? userPolylineStroke = ReadLine();
-                ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
-                string? userPolylineStrokeWidth = ReadLine();
-                user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
-            }
-            else if (userStyle == "1")
-            {
-                string? userPolylineFill = "none";
-                string? userPolylineStroke = "black";
-                string? userPolylineStrokeWidth = "3";
-                user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
-            }
-            else if (userStyle == "2")
-            {
-                string? userPolylineFill = "lime";
-                string? userPolylineStroke = "black";
-                string? userPolylineStrokeWidth = "2";
-                user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
-            }
-            else if (userStyle == "3")
-            {
-                string? userPolylineFill = "red";
-                string? userPolylineStroke = "black";
-                string? userPolylineStrokeWidth = "3";
-                user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
+                if (userStyle == "M")
+                {
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Fill Colour:"); ResetColor();
+                    string? userPolylineFill = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Colour:"); ResetColor();
+                    string? userPolylineStroke = ReadLine();
+                    ForegroundColor = ConsoleColor.Blue; WriteLine("Enter Stroke Width:"); ResetColor();
+                    string? userPolylineStrokeWidth = ReadLine();
+                    user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
+                }
+                else if (userStyle == "1")
+                {
+                    string? userPolylineFill = "none";
+                    string? userPolylineStroke = "black";
+                    string? userPolylineStrokeWidth = "3";
+                    user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
+                }
+                else if (userStyle == "2")
+                {
+                    string? userPolylineFill = "lime";
+                    string? userPolylineStroke = "black";
+                    string? userPolylineStrokeWidth = "2";
+                    user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
+                }
+                else if (userStyle == "3")
+                {
+                    string? userPolylineFill = "red";
+                    string? userPolylineStroke = "black";
+                    string? userPolylineStrokeWidth = "3";
+                    user.Action(new AddShapeCommand(new Polyline(userPoint, userPolylineFill, userPolylineStroke, userPolylineStrokeWidth), canvas));
+                }
             }
         }
         else // ^ ERROR
